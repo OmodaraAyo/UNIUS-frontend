@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View,  } from "react-native";
 import React from "react";
+import Notifications from "../notifications";
 
 const Transaction = () => {
     return (
        <View>
-        <Text>Transaction</Text>
+            <Notifications/>
        </View>
     )
 }
