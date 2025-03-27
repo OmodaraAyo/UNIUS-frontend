@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View,  } from "react-native";
 import React from "react";
 
-const Profile = () => {
+const Trending = () => {
     return (
        <View>
-        <Text>Profile</Text>
+        <Text>Trending</Text>
        </View>
     )
 }
-export default Profile;
+export default Trending;
 
 const styles = StyleSheet.create({
     
