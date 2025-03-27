@@ -9,6 +9,9 @@ module.exports = {
         primary: "#3490DC",
         secondary: "#FFC107",
         tertiary: "#E91E63",
+        homeBg1: "#0e0e0e",
+        homeBg2: "#0078d4",
+
       },
       // fontFamily: {
       //   sans: ["Poppins", "sans-serif"],

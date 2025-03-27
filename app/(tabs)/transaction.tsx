@@ -4,7 +4,7 @@ import React from "react";
 const Transaction = () => {
     return (
        <View>
-        <Text>Transaction</Text>
+        <Text className="text-green-400">Transaction</Text>
        </View>
     )
 }
