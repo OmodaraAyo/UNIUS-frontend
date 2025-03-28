@@ -2,12 +2,13 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React from "react";
 import { useRouter } from 'expo-router';
 import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png"
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Transaction = () => {
     const navigation = useRouter();
 
     return (
-       <View style={styles.container}>
+       <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.back()} style={styles.backButton}>
                     <Image 
@@ -23,7 +24,7 @@ const Transaction = () => {
                     <Text>Refresh</Text>
                 </TouchableOpacity>
             </View>
-       </View>
+       </SafeAreaView>
     )
 }
 export default Transaction;
