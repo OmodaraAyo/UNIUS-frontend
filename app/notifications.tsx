@@ -46,7 +46,7 @@ const Notifications = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
                 <Image 
                     source={BackArrow} 
                     style={styles.backIcon}
@@ -100,6 +100,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 16,
         paddingVertical: 16,
+    },
+    backButton: {
+        zIndex: 999,
+        cursor: 'pointer'
     },
     backIcon: {
         width: 24,
@@ -187,10 +191,10 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         lineHeight: 20,
     },
-    notificationTime: {
-        fontSize: 12,
-        color: '#999999',
-    },
+    // notificationTime: {
+    //     fontSize: 12,
+    //     color: '#999999',
+    // },
 });
 
 export default Notifications;
