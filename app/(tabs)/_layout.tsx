@@ -20,7 +20,7 @@ const Layout = () => {
     return (
         <Tabs screenOptions={{tabBarStyle: {height:90, borderTopLeftRadius: 20, borderTopRightRadius: 20, overflow: 'hidden', shadowColor: '#000', shadowOffset: {width: 0, height:-4}, shadowOpacity: 0.1, shadowRadius: 6, elevation:10, flexDirection: isMediumScreen ? 'row': 'row'},
             tabBarItemStyle: {
-                paddingVertical: 16,
+                paddingVertical: 24,
                 height: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -30,22 +30,23 @@ const Layout = () => {
             <Tabs.Screen
                 name="index"
                 options={{ title: "Home", headerShown: false, tabBarIcon: ({focused}) => (
-                    <Image source={homeIcon} style={{width: 24, height:26, tintColor: focused? '#0066CC': '#999999'}}/>
-                ) }}
-                 
+                    <View style= {styles.tabContainer}><Image source={homeIcon} style={{width: 24, height:26, tintColor: focused? '#0066CC': '#999999'}}/> <Text style={{color: focused ? '#0066CC' : '#999999',fontSize: 12}}>Home</Text></View>
+                ), 
+                tabBarLabel: () => null}}
             />
             <Tabs.Screen
                 name="transaction"
                 options={{ title: "Transaction", headerShown: false, tabBarIcon: ({focused}) => (
-                    <Image source={transactionIcon} style={{width: 24, height:26, tintColor: focused? '#0066CC': '#999999'}}/>
-                )}}
+                    <View style= {styles.tabContainer}><Image source={transactionIcon} style={{width: 29, height:26, tintColor: focused? '#0066CC': '#999999'}}/> <Text style={{color: focused ? '#0066CC' : '#999999',fontSize: 12}}>Transaction</Text></View>
+                ), 
+                tabBarLabel: () => null}}
             />
             <Tabs.Screen
                 name="earn"
-                // tabBarItemStyle: {paddingTop: 29},
                 options={{ title: "Earn", headerShown: false, tabBarIcon: ({focused}) => (
-                    <Image source={earnIcon} style={{width: 30, height:26, tintColor: focused? '#0066CC': '#999999' ,}}/>
-                ) }}
+                    <View style= {styles.tabContainer}><Image source={earnIcon} style={{width: 29, height:26, tintColor: focused? '#0066CC': '#999999'}}/> <Text style={{color: focused ? '#0066CC' : '#999999',fontSize: 12,}}>Earn</Text></View>
+                ), 
+                tabBarLabel: () => null}}
             />
             {/* <Tabs.Screen
                 name="trending"
@@ -56,8 +57,10 @@ const Layout = () => {
             <Tabs.Screen
                 name="settings"
                 options={{ title: "Settings", headerShown: false, tabBarIcon: ({focused}) => (
-                    <Image source={settingsIcon} style={{width: 24, height:26, tintColor: focused? '#0066CC': '#999999'}}/>
-                )}}
+                    <View style= {styles.tabContainer}><Image source={settingsIcon} style={{width: 28, height:26, tintColor: focused? '#0066CC': '#999999'}}/></View>
+                ), 
+                tabBarLabel: 'Settings'
+                }}
             />
             
         </Tabs>
@@ -65,4 +68,11 @@ const Layout = () => {
 };
 export default Layout;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    tabContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        gap: 2,
+    }
+});
