@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
 import React, { useState } from 'react';
-import { useNavigation } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png"
 import logo from "@/assets/images/unius.png"
 
@@ -41,7 +41,7 @@ const Notifications = () => {
         setUnreadCount(0);
     };
 
-    const navigation = useNavigation();
+    const router = useRouter();
 
     return (
         <View style={styles.container}>
@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
         width: 24,
         height: 24,
         resizeMode: 'contain',
+
     },
     headerText: {
         fontSize: 20,
@@ -191,10 +192,10 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         lineHeight: 20,
     },
-    // notificationTime: {
-    //     fontSize: 12,
-    //     color: '#999999',
-    // },
+    notificationTime2: {
+        fontSize: 12,
+        color: '#999999',
+    },
 });
 
 export default Notifications;
