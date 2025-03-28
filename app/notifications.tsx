@@ -46,10 +46,7 @@ const Notifications = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <TouchableOpacity onPress={() => {
-                router.back()}}
-                style={styles.backButton}
-                >
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
                 <Image 
                     source={BackArrow} 
                     style={styles.backIcon}
@@ -106,7 +103,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         zIndex: 999,
-        cursor: 'pointer',
+        cursor: 'pointer'
     },
     backIcon: {
         width: 24,
