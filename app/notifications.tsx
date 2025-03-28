@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
 import React, { useState } from 'react';
-import { useNavigation } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png"
 import logo from "@/assets/images/unius.png"
 
@@ -41,12 +41,15 @@ const Notifications = () => {
         setUnreadCount(0);
     };
 
-    const navigation = useNavigation();
+    const router = useRouter();
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+            <TouchableOpacity onPress={() => {
+                router.back()}}
+                style={styles.backButton}
+                >
                 <Image 
                     source={BackArrow} 
                     style={styles.backIcon}
@@ -101,10 +104,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingVertical: 16,
     },
+    backButton: {
+        zIndex: 999,
+        cursor: 'pointer',
+    },
     backIcon: {
         width: 24,
         height: 24,
         resizeMode: 'contain',
+
     },
     headerText: {
         fontSize: 20,
@@ -187,7 +195,7 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         lineHeight: 20,
     },
-    notificationTime: {
+    notificationTime2: {
         fontSize: 12,
         color: '#999999',
     },

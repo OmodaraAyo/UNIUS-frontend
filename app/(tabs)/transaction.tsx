@@ -5,6 +5,7 @@ import Notifications from "../notifications";
 const Transaction = () => {
     return (
        <View>
+        <Notifications/>
        </View>
     )
 }
