@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, TextInput } from 'reac
 import { SafeAreaView } from "react-native";
 import { useRouter } from "expo-router";
 import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png";
-import uwt from "@/assets/images/uwt logo.png";
+import uwt from "@/assets/images/uwt send.png";
 import nigeria from "@/assets/images/nigeria.png";
 import dropdown from "@/assets/images/dropdown.png";
 import naira from "@/assets/images/naira logo.png";
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     },
     general: {
         alignSelf: 'flex-end',
-        paddingRight: 8    
+        paddingRight: 8,   
     },
     upper: {
        flexDirection: 'row',
