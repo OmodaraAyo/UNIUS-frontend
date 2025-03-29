@@ -1,11 +1,13 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, TextInput } from 'react-native';
 import { useRouter } from 'expo-router';
-import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png"
-import paste from "@/assets/images/paste.png";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import BackArrow from "@/assets/images/ic--baseline-arrow-back 1.png";
+import scan from "@/assets/images/paste.png";
+import ethe from "@/assets/images/cryptocurrency-color--eth 3.png"
+import bitcoin from "@/assets/images/bitco.png";
+import { SafeAreaView } from 'react-native';
 
-const SendUwt = () => {
+const Otherwallet = () => {
     const navigation = useRouter();
 
     return (
@@ -14,16 +16,26 @@ const SendUwt = () => {
                 <TouchableOpacity onPress={() => navigation.back()} style={styles.backButton}>
                     <Image source={BackArrow} style={styles.backArrow}/>
                 </TouchableOpacity>
-                <Text style={styles.headerText}>Send To Unius</Text>
+                <Text style={styles.headerText}>Send to Other Wallets</Text>
             </View>
             <View style={styles.content}>
                 <View style={styles.section}>
                     <Text style={styles.sectionTitle}>Recipient Address</Text>
                     <View style={styles.inputContainer}>
-                        <TextInput style={styles.input} placeholder='Enter or paste Address here' placeholderTextColor="#999"/>
-                        <TouchableOpacity style={styles.pasteButton}>
-                            <Image source={paste} style={styles.pasteIcon}/>
-                            <Text style={styles.pasteText}>Scan</Text>
+                        <TextInput style={styles.input} placeholder='Enter or paste Address here' placeholderTextColor='#999'/>
+                        <TouchableOpacity style={styles.scanButton}>
+                            <Image source={scan} style={styles.scanIcon}/>
+                            <Text style={styles.scanText}>Scan</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.cryptoOptions}>
+                        <TouchableOpacity style={styles.cryptoOption}>
+                            <Image source={ethe} style={styles.cryptoIcon}/>
+                            <Text style={styles.cryptoText}>Ethereum</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.cryptoOption}>
+                            <Image source={bitcoin} style={styles.cryptoIcon}/>
+                            <Text style={styles.cryptoText}>Binance</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.divider}/>
@@ -51,7 +63,7 @@ const SendUwt = () => {
     );
 };
 
-export default SendUwt;
+export default Otherwallet;
 
 const styles = StyleSheet.create({
     container: {
@@ -111,7 +123,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 12,
         fontSize: 16,
     },
-    pasteButton: {
+    scanButton: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
@@ -120,14 +132,39 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginLeft: 8,
     },
-    pasteIcon: {
+    scanIcon: {
         width: 16,
         height: 16,
         marginRight: 4,
     },
-    pasteText: {
+    scanText: {
         fontSize: 14,
         color: '#1A237E',
+    },
+    cryptoOptions: {
+        marginTop: 12,
+        marginBottom: 16,
+        gap: 8,
+    },
+    cryptoOption: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#f5f5f5',
+        paddingVertical: 6,
+        paddingHorizontal: 10,
+        borderRadius: 50,
+        borderWidth: 1,
+        borderColor: '#e0e0e0',
+        maxWidth: 150
+    },
+    cryptoIcon: {
+        width: 20,
+        height: 20,
+        marginRight: 6,
+    },
+    cryptoText: {
+        fontSize: 14,
+        color: '#333',
     },
     divider: {
         height: 1,

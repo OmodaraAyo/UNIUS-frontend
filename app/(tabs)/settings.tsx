@@ -3,9 +3,9 @@ import React from "react";
 
 const Settings = () => {
     return (
-       <View></View>
+       <View>Settings</View>
     )
-}
+};
 export default Settings;
 
 const styles = StyleSheet.create({
