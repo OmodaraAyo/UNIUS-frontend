@@ -17,11 +17,13 @@ import CryptoTracker from "@/components/CryptoTracker";
 import { useRouter } from "expo-router";
 
 
-const labeledList = [
-  {id: 1, label: 'name'},
-  {id: 2, label: 'price'},
-  {id: 3, label: 'Volume(24Hr)'},
-]
+// const labeledList = [
+//   {id: 1, label: 'name'},
+//   {id: 2, label: 'price'},
+//   {id: 3, label: 'Volume(24Hr)'},
+// ]
+
+
 
 export default function Index() {
   const router = useRouter();
@@ -41,7 +43,7 @@ export default function Index() {
         >
           <LinearGradient
             colors={["#011221", "#05366D"]}
-            className="w-full px-8 py-6 flex flex-column gap-4 rounded-b-2xl"
+            className="w-full px-24 py-6 flex flex-column gap-4 rounded-b-2xl"
             start={{ x: 1, y: 5 }}
             end={{ x: 2, y: 2 }}
           >
@@ -138,10 +140,8 @@ export default function Index() {
           </View>
 
           {/* Currency */}
-          <View className="flex flex-col justify-start px-10 py-6 w-[95%] lg:w-[85%] h-[55%] mx-auto rounded-xl bg-transparent mb-10" style={{shadowColor: '#000', shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.1, shadowRadius: 6, elevation: 10, backgroundColor:'transparent'}} >
-              <View className="flex items-start gap-2 justify-between">
-                <CryptoTracker/>
-              </View>
+          <View className="flex flex-col justify-start px-6 py-6 w-[95%] lg:w-[85%] h-[55%] mx-auto rounded-xl bg-transparent mb-10" style={{shadowColor: '#000', shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.1, shadowRadius: 6, elevation: 10, backgroundColor:'transparent'}} >
+                <CryptoTracker/> 
           </View>
         </View>
       </ScrollView>
