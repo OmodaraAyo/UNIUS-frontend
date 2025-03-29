@@ -29,9 +29,9 @@ interface Currency {
 type MergedCryptoData = Currency & CryptoCoin;
 
 const labeledList = [
-  { id: 1, label: "name" },
-  { id: 2, label: "price" },
-  { id: 3, label: "Volume(24Hr)" },
+  { id: 1, label: "Name" },
+  { id: 2, label: "Price" },
+  { id: 3, label: "Volume (24Hr)" },
 ];
 
 const formatLargeNumber = (num: number): string => {
@@ -94,7 +94,7 @@ const CryptoTracker = () => {
     const isLastItem = index === cryptoData.length - 1;
     
     return (
-      <View className="flex flex-row items-center justify-between gap-3 border-b-2 border-b-[#E5E5E5] px-4 py-3" style={[styles.itemContainer, isLastItem && styles.lastItemContainer]}>
+      <View style={[styles.itemContainer, isLastItem && styles.lastItemContainer]}>
         <View style={styles.coinInfo}>
           <Image source={item.icon} style={styles.icon} />
           <Text style={styles.name}>{item.names}</Text>
@@ -107,7 +107,6 @@ const CryptoTracker = () => {
         <View style={styles.volumeContainer}>
           <Text style={[
             styles.volume,
-            changePercent >= 0 ? styles.positive : styles.negative
           ]}>
             {formatLargeNumber(volume)}
           </Text>
@@ -121,15 +120,23 @@ const CryptoTracker = () => {
   }
 
   return (
-    <View className="flex flex-col w-full h-full gap-3">
+    <View style={styles.container}>
       <View style={styles.headerContainer}>
         {labeledList.map((item) => (
-          <Text key={item.id} style={styles.headerText}>
+          <Text 
+            key={item.id} 
+            style={[
+              styles.headerText,
+              item.id === 1 ? styles.headerLeft :
+              item.id === 2 ? styles.headerCenter :
+              styles.headerRight
+            ]}
+          >
             {item.label}
           </Text>
         ))}
       </View>
-      <View>
+      <View style={styles.listContainer}>
         {cryptoData.map((item, index) => (
           <View key={item.id}>
             {renderItem({ item, index })}
@@ -143,42 +150,61 @@ const CryptoTracker = () => {
 export default CryptoTracker;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  listContainer: {
+    flex: 1,
+  },
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingVertical: 20,
+    paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
-    paddingHorizontal: 16,
-    justifyContent: "space-between",
   },
   headerContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ddd",
     marginBottom: 8,
   },
   headerText: {
-    color: "#1A436C",
-    fontWeight: "600",
     fontSize: 14,
+    fontWeight: "600",
+    color: "#1A436C",
+  },
+  headerLeft: {
+    width: "33%",
+    textAlign: "left",
+  },
+  headerCenter: {
+    width: "33%",
+    textAlign: "center",
+  },
+  headerRight: {
+    width: "33%",
+    textAlign: "right",
   },
   coinInfo: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 12,
+    width: "48%",
   },
   priceContainer: {
-    // width: "33%", // Takes 1/3 of the space
-    // alignItems: "flex-start",
+    width: "17%",
+    alignItems: "flex-start",
   },
   volumeContainer: {
-    // width: "33%", // Takes 1/3 of the space
-    alignItems: "flex-start",
+    width: "33%",
+    alignItems: "flex-end",
   },
   icon: {
     width: 32,
     height: 32,
+    marginRight: 12,
   },
   name: {
     fontSize: 16,
@@ -188,14 +214,15 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#1A436C",
+    color: "#16c784",
   },
   volume: {
     fontSize: 14,
     fontWeight: "500",
+    color: "#1A436C",
   },
   positive: {
-    color: "#16c784",
+    // changePercent >= 0 ? styles.positive : styles.negative
   },
   negative: {
     color: "#ea3943",

@@ -1,13 +1,14 @@
 import { StyleSheet, Text, View,  } from "react-native";
 import React from "react";
 
-
-const Settings = () => {
+const Trending = () => {
     return (
-       <View>Settings</View>
+       <View>
+        <Text>Trending</Text>
+       </View>
     )
-};
-export default Settings;
+}
+export default Trending;
 
 const styles = StyleSheet.create({
     
