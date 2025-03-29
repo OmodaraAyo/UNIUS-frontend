@@ -18,19 +18,40 @@ type MenuItemType = {
     names?: string;
     icon: any;
     title?: string;
+    page?: any;
 };
 
+
+type TransactionItemType = {
+    id: string;
+    coinCapId?: string;
+    names?: string;
+    icon: any;
+    title?: string;
+
+};
+
+type CurrencyItemType = {
+    id: string;
+    coinCapId?: string;
+    names?: string;
+    icon: any;
+    title?: string;
+    page?: string;
+};
+
+
 const MenuItem: MenuItemType[] = [
-    {id: '1', icon: watermelon},
-    {id: '2', icon: customerCare},
-    {id: '3', icon: copyIcon},
-    {id: '4', icon: notification},
+    {id: '1', icon: watermelon, page:'/'},
+    {id: '2', icon: customerCare, page:'/customerCare'},
+    {id: '3', icon: copyIcon, page:'/'},
+    {id: '4', icon: notification, page:'/notifications'},
 ];
 
 const TransactionOption: MenuItemType[] = [
-    {id: '1', icon: uniusPI, title: 'To Unius'},
-    {id: '2', icon: wallet, title:'Other Wallets'},
-    {id: '3', icon: withdraw, title:'Withdraw'},
+    {id: '1', icon: uniusPI, title: 'To Unius', page: '/sendUwt'},
+    {id: '2', icon: wallet, title:'Other Wallets', page: '/otherwallet'},
+    {id: '3', icon: withdraw, title:'Withdraw', page: '/'},
 ];
 
 const currency: MenuItemType[] = [

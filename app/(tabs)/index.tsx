@@ -13,8 +13,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TransactionOption } from "@/assets/Allcons";
-import { currency } from "@/assets/Allcons";
 import CryptoTracker from "@/components/CryptoTracker";
+import { useRouter } from "expo-router";
 
 
 const labeledList = [
@@ -24,6 +24,7 @@ const labeledList = [
 ]
 
 export default function Index() {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const { height } = useWindowDimensions();
 
@@ -57,7 +58,7 @@ export default function Index() {
               {/* Right side icons */}
               <View style={styles.rightIconsContainer}>
                 {MenuItem.slice(1).map((item) => (
-                  <TouchableOpacity key={item.id} style={styles.iconWrapper}>
+                  <TouchableOpacity key={item.id} style={styles.iconWrapper} onPress={() => router.push(item.page)}>
                     <Image source={item.icon} />
                   </TouchableOpacity>
                 ))}
@@ -129,10 +130,10 @@ export default function Index() {
           {/* Transaction options */}
           <View className="flex flex-row justify-between px-10 py-6 w-[95%] lg:w-[85%] mx-auto rounded-xl bg-transparent" style={{shadowColor: '#000', shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.1, shadowRadius: 6, elevation: 10, backgroundColor:'transparent'}} >
             {TransactionOption.map((item, index) => (
-              <View key={index} className="flex flex-col items-center gap-2 justify-center">
+              <TouchableOpacity key={index} className="flex flex-col items-center gap-2 justify-center" onPress={() => router.push(item.page)}>
                 <Image source={item.icon} />
                 <Text className="text-[#1A436C]">{item.title}</Text>
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
 
