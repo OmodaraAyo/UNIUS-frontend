@@ -8,10 +8,20 @@ import {
   useWindowDimensions,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { MenuItem } from "@/contsants/headerIcons";
+import { MenuItem } from "@/assets/Allcons";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TransactionOption } from "@/assets/Allcons";
+import { currency } from "@/assets/Allcons";
+import CryptoTracker from "@/components/CryptoTracker";
+
+
+const labeledList = [
+  {id: 1, label: 'name'},
+  {id: 2, label: 'price'},
+  {id: 3, label: 'Volume(24Hr)'},
+]
 
 export default function Index() {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,18 +30,17 @@ export default function Index() {
   return (
     <SafeAreaView edges={["top"]} className="flex-1 bg-white">
       <ScrollView
-        className="flex-1"
         style={{ height: height * 0.12 }}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ minHeight: "100%", paddingBottom: 10 }}
       >
         <View
-          className="w-full h-[12rem] rounded-b-2xl overflow-hidden border-b-2 border-transparent"
+          className="w-full h-full rounded-b-2xl overflow-hidden border-b-2 border-transparent flex flex-column gap-4"
           style={styles.maincontainer}
         >
           <LinearGradient
             colors={["#011221", "#05366D"]}
-            className="w-full h-full px-8 py-6 flex flex-column gap-4"
+            className="w-full px-8 py-6 flex flex-column gap-4 rounded-b-2xl"
             start={{ x: 1, y: 5 }}
             end={{ x: 2, y: 2 }}
           >
@@ -111,9 +120,28 @@ export default function Index() {
                   </View>
                 )}
               </View>
-              <TouchableOpacity className="bg-white rounded-full px-5 py-1 flex justify-center items-center mt-12">Buy</TouchableOpacity>
+              <TouchableOpacity className="bg-white rounded-full px-5 py-1 flex justify-center items-center mt-12 font-semibold text-[#1A436C]">
+                Buy
+              </TouchableOpacity>
             </View>
           </LinearGradient>
+
+          {/* Transaction options */}
+          <View className="flex flex-row justify-between px-10 py-6 w-[95%] lg:w-[85%] mx-auto rounded-xl bg-transparent" style={{shadowColor: '#000', shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.1, shadowRadius: 6, elevation: 10, backgroundColor:'transparent'}} >
+            {TransactionOption.map((item, index) => (
+              <View key={index} className="flex flex-col items-center gap-2 justify-center">
+                <Image source={item.icon} />
+                <Text className="text-[#1A436C]">{item.title}</Text>
+              </View>
+            ))}
+          </View>
+
+          {/* Currency */}
+          <View className="flex flex-col justify-start px-10 py-6 w-[95%] lg:w-[85%] h-[55%] mx-auto rounded-xl bg-transparent mb-10" style={{shadowColor: '#000', shadowOffset: {width: 0, height: 2}, shadowOpacity: 0.1, shadowRadius: 6, elevation: 10, backgroundColor:'transparent'}} >
+              <View className="flex items-start gap-2 justify-between">
+                <CryptoTracker/>
+              </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
