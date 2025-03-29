@@ -121,7 +121,7 @@ export default function Index() {
                   </View>
                 )}
               </View>
-              <TouchableOpacity className="bg-white rounded-full px-5 py-1 flex justify-center items-center mt-12 font-semibold text-[#1A436C]">
+              <TouchableOpacity className="bg-white rounded-full px-5 py-1 flex justify-center items-center mt-12 font-semibold text-[#1A436C]" onPress={() => router.push('/amount')}>
                 Buy
               </TouchableOpacity>
             </View>
